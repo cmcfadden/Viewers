@@ -224,7 +224,7 @@ const mapStateToProps = state => {
   const { timepointManager, servers } = state;
   const { timepoints, measurements } = timepointManager;
   const activeServer = servers.servers.find(a => a.active === true);
-  const saveFunction = getSaveFunction(activeServer.type);
+  const saveFunction = activeServer ? getSaveFunction(activeServer.type) : null;
 
   return {
     timepoints: convertTimepointsToTableData(timepoints),
